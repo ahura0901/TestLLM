@@ -45,13 +45,16 @@ async def chat_completions(request: Request):
         chunks = ["Hello", " there,", " how", " can", " I", " help", " you?"]
         for chunk in chunks:
             data = {
+                "id": "chatcmpl-dummy",
+                "object": "chat.completion.chunk",
                 "choices": [
                     {
                         "delta": {"content": chunk},
                         "index": 0,
                         "finish_reason": None
                     }
-                ]
+                ],
+                "created": "123"
             }
             yield f"data: {json.dumps(data)}\n\n"
             await asyncio.sleep(0.2)  # simulate delay
