@@ -54,7 +54,7 @@ async def chat_completions(request: Request):
                         "finish_reason": None
                     }
                 ],
-                "created": "123"
+                "created": 1754510670097
             }
             yield f"data: {json.dumps(data)}\n\n"
             await asyncio.sleep(0.2)  # simulate delay
